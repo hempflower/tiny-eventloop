@@ -1,5 +1,10 @@
 # Tiny-eventloop —— Simple Eventloop library
 
+[中文](README.zh_CN.md) | English
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![GitHub stars](https://img.shields.io/github/stars/hempflower/tiny-eventloop.svg?style=social&label=Star)
+
 This is a simple eventloop library for embedded c projects. It is designed to be simple and easy to use. 
 
 ## Features

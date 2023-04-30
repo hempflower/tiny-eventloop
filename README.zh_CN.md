@@ -1,5 +1,10 @@
 # Tiny-eventloop —— 轻量级的 Eventloop 库
 
+中文 | [English](README.md)
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![GitHub stars](https://img.shields.io/github/stars/hempflower/tiny-eventloop.svg?style=social&label=Star)
+
 这是一个轻量级的 Eventloop 库，用于嵌入式 C 项目。它的设计目标是简单易用。
 
 ## 特性
