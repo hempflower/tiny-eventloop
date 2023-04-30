@@ -3,7 +3,7 @@
 /* Task list */
 static el_task_t task_list[EL_MAX_TASKS] = {0};
 
-void el_enter_loop()
+void el_enterLoop()
 {
     while (1)
     {
@@ -11,12 +11,12 @@ void el_enter_loop()
         {
             if (task_list[i].handler != NULL)
             {
-                if (el_get_tick() >= task_list[i].run_at)
+                if (el_portTickGet() >= task_list[i].run_at)
                 {
                     task_list[i].handler(task_list[i].arg);
                     if (task_list[i].interval)
                     {
-                        task_list[i].run_at = el_get_tick() + task_list[i].interval;
+                        task_list[i].run_at = el_portTickGet() + task_list[i].interval;
                     }
                     else
                     {
@@ -29,7 +29,7 @@ void el_enter_loop()
     }
 }
 
-el_task_id_t el_push_task(void (*handler)(void *arg), void *arg, el_tick_t interval, el_tick_t run_at)
+el_task_id_t el_pushTask(void (*handler)(void *arg), void *arg, el_tick_t interval, el_tick_t run_at)
 {
     for (int i = 0; i < EL_MAX_TASKS; i++)
     {
@@ -45,7 +45,7 @@ el_task_id_t el_push_task(void (*handler)(void *arg), void *arg, el_tick_t inter
     return NULL;
 }
 
-void el_cancel_task(el_task_id_t task_id)
+void el_cancelTask(el_task_id_t task_id)
 {
     task_id->handler = NULL;
 }

@@ -12,8 +12,8 @@
 #ifndef EL_PORT_H
 #define EL_PORT_H
 
-#define el_tick_t unsigned long
-#define el_tick_get 0
+typedef unsigned long el_tick_t;
+el_tick_t el_portTickGet(void);
 
 #define EL_MAX_TASKS 24
 

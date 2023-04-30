@@ -28,17 +28,17 @@ struct el_task {
 typedef struct el_task el_task_t;
 typedef struct el_task *el_task_id_t;
 
-void el_enter_loop(void);
+void el_enterLoop(void);
 
-el_task_id_t el_push_task(void (*handler)(void *arg), void *arg, el_tick_t interval, el_tick_t run_at);
+el_task_id_t el_pushTask(void (*handler)(void *arg), void *arg, el_tick_t interval, el_tick_t run_at);
 
-void el_cancel_task(el_task_id_t task_id);
+void el_cancelTask(el_task_id_t task_id);
 
 
-#define el_setTimeout(handler, arg, timeout) el_push_task(handler, arg, 0, el_get_tick() + timeout)
-#define el_setInterval(handler, arg, interval) el_push_task(handler, arg, interval, el_get_tick() + interval)
+#define el_setTimeout(handler, arg, timeout) el_pushTask(handler, arg, 0, el_portTickGet() + timeout)
+#define el_setInterval(handler, arg, interval) el_pushTask(handler, arg, interval, el_portTickGet() + interval)
 
-#define el_clearTimeout(task_id) el_cancel_task(task_id)
-#define el_clearInterval(task_id) el_cancel_task(task_id)
+#define el_clearTimeout(task_id) el_cancelTask(task_id)
+#define el_clearInterval(task_id) el_cancelTask(task_id)
 
 #endif
