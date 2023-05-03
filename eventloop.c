@@ -1,7 +1,7 @@
 #include "eventloop.h"
 
 /* Task list */
-static el_task_t task_list[EL_MAX_TASKS] = {0};
+static el_task_t task_list[EL_MAX_TASKS] = {{0}};
 
 void el_enterLoop()
 {
